@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN-WAN CJBO</title>
+    <link rel="stylesheet" href="/styles.css">
+<body>
+    <header>
+        <a href="/index.html">
+        <h1>Internet CJBO</h1>
+        </a>
+        <a href="/index.html">
+        <img src="https://lh4.googleusercontent.com/sboo3c_hOClZnPjntfNhNyAhr5t4Fd7rGUrUSt5Bbh8GV7Xf_XpCx0ig94C1n6TpaVG-hjkU4hckEOpJGd_zPNE=w16383" alt="Logo CJBO">
+        </a>
+    </header>
+    <div class="filter" id="filter"></div>
+    <p>Centro de información configuraciones internas de la red de internet CJBO</p>
+<section class="wan">
+    <h2>WAN</h2>
+    <nav class="area">
+        <ul class="menu-zona" onclick="showSubmenuZAcad()"><h2>Zona Academica</h2>
+        <ul id="container-aulas"onclick="showSubmenuAulas()"><h3>Aulas</h3>
+            <ul id="aulas">
+        <li onclick="showInfoElecDigi()">Electronica digital</li>
+        <li>Soporte TI</li>
+        <li>Archivo y documentación</li>
+        <li>Confección</li>
+        <li>Panaderia</li>
+        <li>Mantenimiento motos</li>
+        <li>Mantenimiento carros</li>
+        <li>Artes circenses</li>
+    </ul>
+    </ul>
+    <ul class="menu-zona" onclick="showSubmenuZAdmi()"><h2>Zona administrativa</h2>
+        <ul id="z-admin">
+    <li>server</li>
+    <li>Cordinación academica</li>
+    <li>cordinacion pastoral</li>
+    <li>Comedor</li>
+</ul>
+    <ul id="container-teatro" class="menu-zona" onclick="showSubmenuAudiVisu()"><h3>Audiovisuales teatro</h3>
+        <ul id="teatro">
+    <li>cabina</li>
+    <li>central</li>
+</ul>
+</ul>
+</ul>
+        </ul>
+</nav>
+<div class="container-card" id="container-card">
+<div class="card" id="card">
+    <div class="user">
+        <h2>Usuario</h2>
+                </div>
+                <div class="password">
+                <h2>Contraseña</h2>
+                </div>
+                <div class="zone">
+                <h2>Zona</h2>
+                </div>
+</div>
+</div>
+</section>
+    <script src="script.js"></script>
+</body>
+</html>
