@@ -56,7 +56,7 @@ function hiddenInfo() {
 function showInfoRemove() {
     infoShow.style.display = 'none'
 }
-// Close lnetworks
+// Close networks
 let networks = document.getElementById('networks')
 function closeList() {
 networks.style.display = 'none'
@@ -82,19 +82,15 @@ let card = document.getElementById('card')
 
 function showInfoElecDigi() {
     filter.style.display = 'block'  
-    containerCard.style.opacity = '1';
-            card.style.opacity = '1';
 }
 function hiddenInfo() {
-    filter.style.display = 'none'  
-    containerCard.style.opacity = '0';
-            card.style.opacity = '0';
+    filter.style.display = 'none'
 }
 filter.addEventListener('click', hiddenInfo)
 
 // Show settings red
 let containerRedHome = document.getElementById('container-red-home')
 function showRed() {
-    networks.style.display = 'block'
+    networks.style.display = 'flex'
     containerRedHome.style.display = 'none'
 }
