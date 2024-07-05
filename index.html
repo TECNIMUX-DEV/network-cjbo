@@ -11,18 +11,33 @@
         <h1>Internet CJBO</h1>
         </a>
         <a href="/index.html">
-        <img src="https://lh4.googleusercontent.com/sboo3c_hOClZnPjntfNhNyAhr5t4Fd7rGUrUSt5Bbh8GV7Xf_XpCx0ig94C1n6TpaVG-hjkU4hckEOpJGd_zPNE=w16383" alt="Logo CJBO">
+        <img src="/img/logo-CJBO.png" alt="Logo CJBO">
         </a>
     </header>
     <div class="filter" id="filter"></div>
-    <p>Centro de información configuraciones internas de la red de internet CJBO</p>
-<section class="wan">
-    <h2>WAN</h2>
+    <h1>Centro de información configuraciones internas de la red de internet CJBO</h1>
+    <div id="container-red-home">
+<div id="settings-red" class="home-red" onclick="showRed()"><h2>RED</h2><h4>Configuraciones redes WIFI</h4></div>
+<div class="home-red"><h2>AREA</h2><h4>Mapa de infraestructura CJBO</h4></div>
+</div>
+<section class="wan" id="networks">
+    <h2>REDES WIFI - WAN</h2>
     <nav class="area">
-        <ul class="menu-zona" onclick="showSubmenuZAcad()"><h2>Zona Academica</h2>
+        <button id="close" onclick="closeList()"><img src="/navegation/close.png" alt="Close" title="Cerrar"></button>
+        <div id="icons-list">
+            <div class="icons-list-img">
+        <button id="btn-show-all-items" onmousemove="showInfo()" onmouseout="showInfoRemove()">
+            <img src="/navegation/all-00.png" alt="Mostar todo" class="show-00" onclick="showAllItems()"><p id="info-show">Mostrar todo</p>
+        </button>
+        <button id="btn-hidden-all-items" onmousemove="hiddenInfo()" onmouseout="showInfoRemove()">
+            <img src="/navegation/all.png" alt="Contraer todo" class="show-01" onclick="closeAllItems()"><p id="info-hidden">Contraer</p>
+        </button>
+        </div>
+    </div>
+        <ul class="menu-zona zona-acad"><h2 id="title-z-acad" onclick="showSubmenuZAcad()" onmousedown="addLineButtomNav02()">Zona Academica</h2>
         <ul id="container-aulas"onclick="showSubmenuAulas()"><h3>Aulas</h3>
             <ul id="aulas">
-        <li onclick="showInfoElecDigi()">Electronica digital</li>
+        <li>Electronica digital</li>
         <li>Soporte TI</li>
         <li>Archivo y documentación</li>
         <li>Confección</li>
@@ -32,17 +47,17 @@
         <li>Artes circenses</li>
     </ul>
     </ul>
-    <ul class="menu-zona" onclick="showSubmenuZAdmi()"><h2>Zona administrativa</h2>
+    <ul class="menu-zona zona-admi" onclick="showSubmenuZAdmi()"><h2 id="title-z-admi" onmousedown="addLineButtomNav01()">Zona Administrativa</h2>
         <ul id="z-admin">
-    <li>server</li>
+    <li>Servidor</li>
     <li>Cordinación academica</li>
-    <li>cordinacion pastoral</li>
+    <li>Cordinacion pastoral</li>
     <li>Comedor</li>
 </ul>
     <ul id="container-teatro" class="menu-zona" onclick="showSubmenuAudiVisu()"><h3>Audiovisuales teatro</h3>
         <ul id="teatro">
-    <li>cabina</li>
-    <li>central</li>
+    <li>Cabina</li>
+    <li>Teatro centro</li>
 </ul>
 </ul>
 </ul>
