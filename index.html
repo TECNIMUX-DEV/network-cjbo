@@ -3,113 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAN-WAN CJBO</title>
+    <title>LOGIN NETWORKS CJBO</title>
     <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
-    <header>
-        <a href="/index.html">
-        <h1>Internet CJBO</h1>
-        </a>
-        <a href="/index.html">
-        <img src="/img/logo-CJBO.png" alt="Logo CJBO">
-        </a>
-    </header>
-    <div class="filter" id="filter"></div>
-    <div class="filter" id="filter-02"></div>
-    <h1 class="title-main">Centro de información configuraciones internas de la red de internet CJBO</h1>
-    <div id="container-red-home">
-<div id="settings-red" class="home-red" onclick="showRed()"><h2>RED</h2><h4>Configuraciones redes WIFI</h4></div>
-<div class="home-red"><h2>AREA</h2><h4>Mapa de infraestructura CJBO</h4></div>
-</div>
-<section class="wan" id="networks">
-    <div class="title-sect-netw">
-<h2>REDES LAN</h2>
+    <h2>Iniciar Sesión</h2>
+    <form id="login">
+        <label for="username">USUARIO</label>
+        <input type="text" id="username" name="username" required>
+        <br/>
+        <label for="password">CONTRASEÑA</label>
+        <input type="password" id="password" name="password" required>
+        <br/>
+        <button type="submit" id="ingresar">INICIAR SESIÓN</button>
+    </form>
+        <div class="container-loading-animation">
+            <p id="inside"></p>
+            <p id="outside"></p>
+        <div class="loading-animation" id="loadingAnimation"></div>
     </div>
-    <nav class="area">
-        <button id="close" onclick="closeList()"><img src="/navegation/close.png" alt="Close" title="Cerrar"></button>
-        <div id="icons-list">
-            <div class="icons-list-img">
-        <button id="btn-show-all-items" onmousemove="showInfo()" onmouseout="showInfoRemove()">
-            <img src="/navegation/all-00.png" alt="Mostar todo" class="show-00" onclick="showAllItems()"><p id="info-show">Mostrar todo</p>
-        </button>
-        <button id="btn-hidden-all-items" onmousemove="hiddenInfo()" onmouseout="showInfoRemove()">
-            <img src="/navegation/all.png" alt="Contraer todo" class="show-01" onclick="closeAllItems()"><p id="info-hidden">Contraer</p>
-        </button>
-        </div>
-    </div>
-        <ul class="menu-zona zona-acad"><h2 id="title-z-acad" onclick="showSubmenuZAcad()" onmousedown="addLineButtomNav02()">Zona Academica</h2>
-        <ul id="container-aulas"onclick="showSubmenuAulas()"><h3>Aulas</h3>
-            <ul id="aulas">
-        <li onclick="insertElectronicaDigital()">Electronica digital</li>
-        <li onclick="insertSoporteTI()">Soporte TI</li>
-        <li onclick="insertArchivoDocumentacion()">Archivo y documentación</li>
-        <li onclick="insertConfeccion()">Confección</li>
-        <li onclick="insertInfoPanaderia()">Panaderia</li>
-        <li onclick="insertMantenimientoMotos()">Mantenimiento motos</li>
-        <li onclick="insertMantenimientoCarros()">Mantenimiento carros</li>
-        <li onclick="insertInfoArtesCircenses()">Artes circenses</li>
-    </ul>
-    </ul>
-    <ul class="menu-zona zona-admi" onclick="showSubmenuZAdmi()"><h2 id="title-z-admi" onmousedown="addLineButtomNav01()">Zona Administrativa</h2>
-        <ul id="z-admin">
-
-    <li onclick="insertServidor()">Servidor</li>
-    <li onclick="insertInfoCoordinacionAcademica()">Cordinación academica</li>
-    <li onclick="insertCoordinacionPastoral()">Cordinacion pastoral</li>
-    <li onclick="insertInfoComedor()">Comedor</li>
-    <li onclick="insertCasaVerde()">Casa verde</li>
-</ul>
-    <ul id="container-teatro" class="menu-zona" onclick="showSubmenuAudiVisu()"><h3>Audiovisuales teatro</h3>
-        <ul id="teatro">
-    <li>Cabina</li>
-    <li>Teatro centro</li>
-</ul>
-</ul>
-</ul>
-        </ul>
-</nav>
-<div class="container-card" id="container-card">
-<div class="card" id="card">
-    <div class="infoitem">
-        <h2><span><img src="/cards/icons/icons8-place-24.png" alt="Name user"></span>Zona</h2>
-        <p id="zone"></p>
-        </div>
-    <div class="infoitem">
-        <h2><span><img src="/cards/icons/icons8-rename-24.png" alt="Name user"></span>Nombre de red</h2>
-        <p id="name-net"></p>
-        </div>
-    <div class="infoitem">
-    <h2><span><img src="/cards/icons/icons8-key-24.png" alt="Name user"></span>Contraseña</h2>
-    <p id="password-net"></p>
-    </div>
-    <div class="infoitem">
-        <h2><span><img src="/cards/icons/icons8-cloud.png" alt="Name user"></span>Tipo de red</h2>
-        <p id="type-net"></p>
-        </div>
-                <div class="infoitem">
-                    <h2><span><img src="/cards/icons/icons8-router-24.png" alt="Name user"></span>Marca router</h2>
-                    <p id="router"></p>
-                    </div>
-                    <div class="infoitem">
-                        <h2><span><img src="/cards/icons/icons8-login-24.png" alt="Filtrado MAC"></span>Puerta de enlace</h2>
-                        <p id="gateway"></p>
-                        </div>
-                        <div class="infoitem">
-                            <h2><span><img src="/cards/icons/icons8-offline-24.png" alt="Filtrado MAC"></span>Filtrado MAC</h2>
-                            <p id="f-mac"></p>
-                        </div>
-                            <div class="infoitem">
-                                <h2><span><img src="/cards/icons/icons8-user-admin.png" alt="Name user"></span>Usuario ADMIN</h2>
-                                <p id="admin-user"></p>
-                            </div>
-                            <div class="infoitem">
-                                <h2><span><img src="/cards/icons/icons8-password-admin.png" alt="Name user"></span>Contraseña ADMIN</h2>
-                                <p id="admin-password"></p>
-                                </div>
-
-</div>
-</div>
-</section>
-    <script src="script.js"></script>
+    <!-- <div id="content-unlock">
+        <p>Bienvenido</p>
+        <p>Ya puedes acceder LAN CJBO</p>
+    </div> -->
+        <script src="/script.js"></script>
 </body>
 </html>
