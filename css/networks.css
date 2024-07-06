@@ -4,6 +4,7 @@
     box-sizing: border-box;
     }
     body {
+        width: 100%;
         z-index: 1;
         background-image: url(/img/cjbo-bg.jpg);
         background-repeat: no-repeat;
@@ -131,6 +132,9 @@
         padding-top: 20px;
         color: #000;
         margin: 0;
+    }
+    .area li {
+        cursor: pointer;
     }
     .menu-zona h2:hover {
         box-shadow: 0 0.5px 0 #fff;
@@ -260,8 +264,8 @@
         border-radius: 5px;
         box-shadow: 0 0 10px #00000060;
         margin-top: 6rem;
-    
     }
+
     .card {
         height: 100%;
         width: 100%;
@@ -294,7 +298,27 @@
         padding-right: 5px;
     }
     #zone {
-        width: 100vh;
+        width: 100vw;
         box-shadow: 0 0.5px  0 #000;
         padding-bottom: 10px;
     }
+    @media screen and (max-width: 1000px){
+        .container-card {
+            z-index: 1;
+            position: relative;
+            width: 90vw;
+            height: auto;
+            /* background-color: #ffffff46; */
+            background-color: #ffffffc2;
+            backdrop-filter: blur(20px);
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00000060;
+            margin-top: 6rem;
+        }
+        .card {
+            padding: 10px;
+        }
+        #zone {
+            width: 100%;
+    }
+}
