@@ -111,17 +111,6 @@ let adminPassword = document.getElementById('admin-password')
 
 // Zona academica
 // Aulas         
-function renameInfo() {
-    zone.innerHTML = ''
-    nameNet.innerHTML = ''
-    passwordNet.innerHTML = ''
-    typeNet.innerHTML = ''
-    router.innerHTML = ''
-    gateway.innerHTML = ''
-    fMac.innerHTML = ''
-    adminUser.innerHTML = ''
-    adminPassword.innerHTML = ''
-}
 
 function insertElectronicaDigital() {
     zone.innerHTML = 'ELECTRÓNICA DIGITAL <strong>AULA</strong>'
@@ -268,9 +257,6 @@ function insertCasaVerde() {
     adminPassword.innerHTML = 'Cjbo2024**'
 }
 // Sub menu Teatro
-/*
-    <li>Cabina</li>
-    <li>Teatro centro</li>*/
     function insertInfoCabina() {
         zone.innerHTML = 'TEATRO <strong>CABINA</strong>'
         nameNet.innerHTML = 'SONIDO-CJBO'
@@ -292,4 +278,11 @@ function insertCasaVerde() {
         fMac.innerHTML = 'DEFAULT'
         adminUser.innerHTML = 'DEFAULT'
         adminPassword.innerHTML = 'DEFAULT'
+    }
+    // Add sides card
+    function addSides() {
+        card.classList.add('add-sides')
+        setTimeout(function() {
+            card.classList.remove('add-sides')
+        }, 1000);
     }

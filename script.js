@@ -21,8 +21,10 @@ if (username === user && password === pass) {
     login.style.display = 'none'
 }
 else {
-    window.location.href = '/index.html';
     outside.textContent = 'Usuario y contraseña incorrectos'
     outside.style.color = 'red'
+    setTimeout(function() {
+        window.location.href = '/index.html';
+    }, 5000);
 }
 })
