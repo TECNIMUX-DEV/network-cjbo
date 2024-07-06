@@ -13,7 +13,7 @@ let loadingAnimation = document.getElementById('loadingAnimation')
 if (username === user && password === pass) {
         loadingAnimation.style.display = 'flex'
         setTimeout(function() {
-            window.location.href = '/html/networks.html';
+            window.location.href = '/html/sffgfhjkllñlkjlkhkjjrwrwew.html';
         }, 2000);
 
     inside.textContent = 'Usuario y contraseña correctos'
@@ -21,10 +21,11 @@ if (username === user && password === pass) {
     login.style.display = 'none'
 }
 else {
+    outside.style.display = 'block'
     outside.textContent = 'Usuario y contraseña incorrectos'
     outside.style.color = 'red'
     setTimeout(function() {
         window.location.href = '/index.html';
-    }, 5000);
+    }, 1000);
 }
 })

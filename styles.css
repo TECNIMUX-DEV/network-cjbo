@@ -9,7 +9,6 @@
         margin: 0 auto;
         font-family: sans-serif;
         font-weight: 500;
-        background-color: rgb(190, 35, 35);
         overflow: hidden;
         background-image: url(/img/CJBO-bg-00.jpg);
         background-repeat: no-repeat;
@@ -55,7 +54,6 @@
         height: 100vh;
         width: 100vw;
         background-color: #00000086;
-
     }
 
     form {
@@ -78,7 +76,7 @@
     backdrop-filter: blur(10px);
 }
 .login h2 {
-    background-color: rgb(0, 0, 0, 0.7);
+    background-color: rgba(255, 0, 0, 0.7);
     box-shadow:  0 0.5px  0  #fff;
     font-size: 2rem;
     font-weight: 200;
@@ -86,16 +84,20 @@
     padding: 10px;
 }
 #outside {
-    color: red;
-    font-size: 2rem;
+    display: none;
+    color: #ff0000;
+    font-size: 1rem;
+    font-weight: 500;
+    background: #ffffff0a;
+    backdrop-filter: blur(50px);
+    padding: 10px;
 }
 .container-loading-animation {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    }
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
 .loading-animation {
     display: none;
     width: 50px;
@@ -107,7 +109,6 @@
     animation: spin 1s linear infinite;
     margin: 20px;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

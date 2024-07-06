@@ -279,10 +279,21 @@ function insertCasaVerde() {
         adminUser.innerHTML = 'DEFAULT'
         adminPassword.innerHTML = 'DEFAULT'
     }
-    // Add sides card
+    // Add sides card and filter list
+    let filterList = document.getElementById('filter-list')
     function addSides() {
         card.classList.add('add-sides')
+        card.classList.remove('remove-sides')
+        filterList.style.display = 'block'
+
         setTimeout(function() {
             card.classList.remove('add-sides')
+            card.classList.add('remove-sides')
+            filterList.style.display = 'none'
         }, 1000);
     }
+    // function removeFilterList() {
+    //     filterList.style.display = 'none'
+    // }
+
+    // filterList.addEventListener('click', removeFilterList)

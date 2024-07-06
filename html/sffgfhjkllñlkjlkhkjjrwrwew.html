@@ -26,7 +26,8 @@
     <div class="title-sect-netw">
 <h2>REDES LAN</h2>
     </div>
-    <nav class="area">
+    <nav class="area" id="area">
+        <div class="filter-list" id="filter-list"></div>
         <button id="close" onclick="closeList()"><img src="/navegation/close.png" alt="Close" title="Cerrar"></button>
         <div id="icons-list">
             <div class="icons-list-img">
@@ -53,16 +54,16 @@
             </ul>
     <ul class="menu-zona zona-admi" onclick="showSubmenuZAdmi()"><h2 id="title-z-admi" onmousedown="addLineButtomNav01()">Zona Administrativa</h2>
             <ul id="z-admin">
-                <a href="#container-card"><li onclick="insertServidor()">Servidor</li></a>
-                <a href="#container-card"><li onclick="insertInfoCoordinacionAcademica()">Coordinación académica</li></a>
-                <a href="#container-card"><li onclick="insertCoordinacionPastoral()">Coordinación pastoral</li></a>
-                <a href="#container-card"><li onclick="insertInfoComedor()">Comedor</li></a>
-                <a href="#container-card"><li onclick="insertCasaVerde()">Casa verde</li></a>
+                <a href="#container-card"><li onclick="insertServidor(), addSides()">Servidor</li></a>
+                <a href="#container-card"><li onclick="insertInfoCoordinacionAcademica(), addSides()">Coordinación académica</li></a>
+                <a href="#container-card"><li onclick="insertCoordinacionPastoral(), addSides()">Coordinación pastoral</li></a>
+                <a href="#container-card"><li onclick="insertInfoComedor(), addSides()">Comedor</li></a>
+                <a href="#container-card"><li onclick="insertCasaVerde(), addSides()">Casa verde</li></a>
             </ul>
-            <ul id="container-teatro" class="menu-zona" onclick="showSubmenuAudiVisu()"><h3>Audiovisuales teatro</h3>
+            <ul id="container-teatro" class="menu-zona" onclick="showSubmenuAudiVisu(), addSides()"><h3>Audiovisuales teatro</h3>
                 <ul id="teatro">
-                    <a href="#container-card"><li onclick="insertInfoCabina()">Cabina</li></a>
-                    <a href="#container-card"><li onclick="insertInfoTeatroCentro()">Teatro centro</li></a>
+                    <a href="#container-card"><li onclick="insertInfoCabina(), addSides()">Cabina</li></a>
+                    <a href="#container-card"><li onclick="insertInfoTeatroCentro(), addSides()">Teatro centro</li></a>
                 </ul>
             </ul>
     </ul>
