@@ -289,7 +289,7 @@ function insertCasaVerde() {
         setTimeout(function() {
             card.classList.remove('add-sides')
             card.classList.add('remove-sides')
-            filterList.style.display = 'none'
+        filterList.style.display = 'none'
         }, 1000);
     }
     // function removeFilterList() {
@@ -297,3 +297,4 @@ function insertCasaVerde() {
     // }
 
     // filterList.addEventListener('click', removeFilterList)
+    filter02.addEventListener('click',  closeList)
