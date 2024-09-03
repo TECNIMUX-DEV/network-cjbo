@@ -8,29 +8,35 @@
     <link rel="icon" type="favicon" href="favicons-cjbo/icons8-login-16.png">
 </head>
 <body>
-    <div class="filter"></div>
-    <div class="container-login">
+<div class="filter"></div>
+<div class="container-login">
 
+    <form>
+        <h2>Iniciar Sesión</h2>
+        <img src="/img/logo-CJBO.png" alt="Logo">
         <div class="login">
-                    <h2>Iniciar Sesión</h2>
-    <form id="login">
-        <label for="username">USUARIO</label>
-        <input type="text" id="username" name="username" required>
-        <br/>
-        <label for="password">CONTRASEÑA</label>
-        <input type="password" id="password" name="password" required>
-        <br/>
-        <button type="submit" id="ingresar">INICIAR SESIÓN</button>
+            <fieldset>
+                <legend>Credenciales</legend>
+            <label for="username">USUARIO</label>
+            <input type="text" id="username" name="username" placeholder="CJBO" required>
+            <label for="password">CONTRASEÑA</label>
+            <input type="password" id="password" name="password" placeholder="******" required>
+        </fieldset>
+        <fieldset class="container-loggeo">
+        <div class="loggeo">
+            <button type="submit" id="ingresar">Iniciar sesión</button>
+            <button type="reset" id="reset">reset</button>
+        </div>
+        </fieldset>
+        </div>
     </form>
-        <div class="container-loading-animation">
-
-            <div class="message">
+    <div class="container-loading-animation">
+        <div class="message">
             <div class="loading-animation" id="loadingAnimation"></div>
         </div>
         <p id="inside"></p>
         <p id="outside"></p>
-        </div>
-</div>
+    </div>
 </div>
     <!-- <div id="content-unlock">
         <p>Bienvenido</p>

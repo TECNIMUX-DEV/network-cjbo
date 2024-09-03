@@ -76,31 +76,42 @@
     .home-red {
         z-index: 20;
         text-align: center;
-        height: 250px;
-        width: 250px;
+        height: 200px;
+        width: 200px;
         background-color: #22222293;
         border-radius: 10%;
         margin: 5px;
-        padding-top: 25px;
+        padding: 25px;
         cursor: pointer;
-        backdrop-filter: blur(1px);
-        transition:  0.2s ease;
-        }
-    
-    .home-red:hover {
         backdrop-filter: blur(40px);
         box-shadow: 1px 0 0 #ff0000;
+        transition:  0.2s ease;
+        text-align: start;
+
+
+        & h2 {
+            font-size: 2rem;
+            box-shadow: 0 0.5px  0 #fff;
+            }
+
+        & h4 {
+            width: 70%;
+            font-size: 1rem;
+            font-weight: 200;
+            text-wrap: pretty;
+            padding: 10px;
+            color: #dddddd;
+
+        }
+        
+        &:hover {
+        backdrop-filter: 30px;
+        opacity: 0.9;
+
+        }
     }
     .home-red:active {
         opacity: 0.7;
-    }
-    .home-red h2 {
-        font-size: 3rem;
-        font-weight: 500;
-    }
-    .home-red h4 {
-        font-size: 2rem;
-        font-weight: 100;
     }
     .zona-acad, .zona-admi {
         margin: 20px;
