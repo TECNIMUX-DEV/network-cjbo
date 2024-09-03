@@ -19,14 +19,14 @@ function showSubmenuAudiVisu() {
 }
 
 // Add lines nav ul
-let titleZAdmi = document.getElementById('title-z-admi')
-let titleZAcad = document.getElementById('title-z-acad')
-function addLineButtomNav01() {
-    titleZAdmi.classList.add('border-bottom-ul')
-}
-function addLineButtomNav02() {
-    titleZAcad.classList.add('border-bottom-ul') 
-}
+// let titleZAdmi = document.getElementById('title-z-admi')
+// let titleZAcad = document.getElementById('title-z-acad')
+// function addLineButtomNav01() {
+//     titleZAdmi.classList.add('border-bottom-ul')
+// }
+// function addLineButtomNav02() {
+//     titleZAcad.classList.add('border-bottom-ul') 
+// }
 
 // Show all items
 let btnShowAllItems = document.getElementById('btn-show-all-items')
