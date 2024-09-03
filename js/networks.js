@@ -57,7 +57,7 @@ function showInfoRemove() {
     infoShow.style.display = 'none'
 }
 // Close networks
-let networks = document.getElementById('networks')
+let networks = document.getElementById('networks');
 function closeList() {
 networks.style.display = 'none'
 containerRedHome.style.display = 'flex'
@@ -90,8 +90,8 @@ function hiddenInfo() {
 filter.addEventListener('click', hiddenInfo)
 
 // Show settings red and add second filter 
-let filter02 = document.getElementById('filter-02')
-let containerRedHome = document.getElementById('container-red-home')
+let filter02 = document.getElementById('filter-02');
+let containerRedHome = document.getElementById('container-red-home');
 function showRed() {
     networks.style.display = 'flex'
     containerRedHome.style.display = 'none'
@@ -106,15 +106,15 @@ map.addEventListener('click', () => {
 })
 
 // Insert information
-let nameNet = document.getElementById('name-net')
-let passwordNet = document.getElementById('password-net')
-let typeNet = document.getElementById('type-net')
-let zone = document.getElementById('zone')
-let router = document.getElementById('router')
-let gateway = document.getElementById('gateway')
-let fMac = document.getElementById('f-mac')
-let adminUser = document.getElementById('admin-user')
-let adminPassword = document.getElementById('admin-password')
+let nameNet = document.getElementById('name-net');
+let passwordNet = document.getElementById('password-net');
+let typeNet = document.getElementById('type-net');
+let zone = document.getElementById('zone');
+let router = document.getElementById('router');
+let gateway = document.getElementById('gateway');
+let fMac = document.getElementById('f-mac');
+let adminUser = document.getElementById('admin-user');
+let adminPassword = document.getElementById('admin-password');
 
 // Zona academica
 // Aulas         
@@ -287,7 +287,7 @@ function insertCasaVerde() {
         adminPassword.innerHTML = 'DEFAULT'
     }
     // Add sides card and filter list
-    let filterList = document.getElementById('filter-list')
+    let filterList = document.getElementById('filter-list');
     function addSides() {
         card.classList.add('add-sides')
         card.classList.remove('remove-sides')
@@ -304,4 +304,4 @@ function insertCasaVerde() {
     // }
 
     // filterList.addEventListener('click', removeFilterList)
-    filter02.addEventListener('click',  closeList)
+    filter02.addEventListener('click',  closeList);
