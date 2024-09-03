@@ -377,11 +377,11 @@
         overflow-x: hidden;
 
         .color-zone {
+            z-index: 2;
             padding: .5rem;
             border-radius: 15px;
             background-color: rgb(209, 6, 6);
             color: #fff;
-
         }
     }
 
@@ -389,6 +389,8 @@
         width: 90%;
         margin: 1rem;
         padding: 10px;
+        background-color: rgba(165, 165, 165, 0.37);
+        border-radius: 5px;
         
         & h2 {
             font-size: 1.2rem;
@@ -525,11 +527,11 @@
         padding: 0px;
     }
     .infoitem {
-        background-color: transparent;
         padding: 10px;
         margin: 5px;
         background-color: rgba(165, 165, 165, 0.37);
         border-radius: 5px;
+        color: #000;
     }
     .infoitem h2 {
         font-size: .8rem;
@@ -540,6 +542,9 @@
     }
     
     .infoitem span img {
-        width:  20px;
+        width:  15px;
+        padding: 0;
+        margin-right: 15px;
     }
+}
 }
