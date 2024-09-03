@@ -97,6 +97,13 @@ function showRed() {
     containerRedHome.style.display = 'none'
     filter02.style.display = 'block'
 }
+// Show infrastructure
+const map = document.getElementById('map');
+const infraestructure = document.getElementById('infraestructure');
+map.addEventListener('click', () => {
+    infraestructure.style.display = 'flex';
+    containerRedHome.style.display = 'none';
+})
 
 // Insert information
 let nameNet = document.getElementById('name-net')

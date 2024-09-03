@@ -6,9 +6,10 @@ const pass = 'CJBO-*4202';
 
 const username = document.getElementById('username').value;
 const password = document.getElementById('password').value;
-let inside = document.getElementById('inside')
-let outside = document.getElementById('outside')
-let loadingAnimation = document.getElementById('loadingAnimation')
+let inside = document.getElementById('inside');
+let outside = document.getElementById('outside');
+let loadingAnimation = document.getElementById('loadingAnimation');
+const error = document.getElementById('error');
 
 if (username === user && password === pass) {
         loadingAnimation.style.display = 'flex'
@@ -21,9 +22,9 @@ if (username === user && password === pass) {
     login.style.display = 'none'
 }
 else {
-    outside.style.display = 'block'
-    outside.textContent = 'Usuario y contraseña incorrectos'
-    outside.style.color = 'red'
+    outside.style.display = 'flex'
+    outside.innerHTML = 'Usuario y contraseña incorrectos'
+    error.style.display = 'flex'
     setTimeout(function() {
         window.location.href = '/index.html';
     }, 1000);
