@@ -17,14 +17,13 @@ if (username === user && password === pass) {
             window.location.href = '/html/sffgfhjkllñlkjlkhkjjrwrwew.html';
         }, 2000);
 
-    inside.textContent = 'Usuario y contraseña correctos'
-    inside.style.color = '#4CAF50'
-    login.style.display = 'none'
+    inside.textContent = 'Usuario y contraseña correctos';
+    login.style.display = 'none';
 }
 else {
-    outside.style.display = 'flex'
-    outside.innerHTML = 'Usuario y contraseña incorrectos'
-    error.style.display = 'flex'
+    outside.style.display = 'flex';
+    outside.innerHTML = 'Usuario y contraseña incorrectos';
+    error.style.display = 'flex';
     setTimeout(function() {
         window.location.href = '/index.html';
     }, 1000);

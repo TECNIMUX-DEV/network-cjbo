@@ -165,14 +165,21 @@ legend {
         width: 50px;
     }
 }
+#inside {
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 200;
+    color: #fff;
+}
 #outside {
     z-index: 1;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -20%);
-    font-size: 1rem;
     padding: 10px;
+    font-size: 1rem;
+    font-weight: 200;
     color: #fff;
 }
 .container-loading-animation {
