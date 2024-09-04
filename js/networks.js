@@ -287,16 +287,21 @@ function insertCasaVerde() {
         adminPassword.innerHTML = 'DEFAULT'
     }
     // Add sides card and filter list
-    let filterList = document.getElementById('filter-list');
+    let filterOnClickItem = document.getElementById('filter-on-click-item');
+    const area = document.getElementById('area');
     function addSides() {
         card.classList.add('add-sides')
         card.classList.remove('remove-sides')
-        filterList.style.display = 'block'
+        filterOnClickItem.style.display = 'block';
+        area.style.opacity = '0.2';
+        area.style.zIndex = '-10';
 
         setTimeout(function() {
             card.classList.remove('add-sides')
             card.classList.add('remove-sides')
-        filterList.style.display = 'none'
+            filterOnClickItem.style.display = 'none';
+            area.style.opacity = '1';
+            area.style.zIndex = '1';
         }, 1000);
     }
     // function removeFilterList() {

@@ -60,7 +60,7 @@
         }
 
     }
-    .filter-home{
+    .filter-home {
         z-index: -1;
         position: absolute;
         top: 0;
@@ -77,24 +77,27 @@
         text-align: center;
     }
     .filter {
-        display: none;
+        z-index: 1;
         height: 100%;
         width: 100%;
         position: absolute;
         background-color: rgba(7, 7, 7, 0.7);
-        z-index: 2;
-    }
-    .filter-list {
         display: none;
+    }
+    .filter-on-click-item {
+        z-index: -10;
         position: absolute;
         z-index: 1;
-        height: 100vh;
+        height: 100%;
         width: 100%;
+        top: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        margin: 0;
-        padding: 0;
+        background-color: rgba(0, 0, 0, 0.459);
         transition: 0.5s ease;
+        display: none;
+    }
+    .display-block {
+        display: block;
     }
     #container-red-home {
         height: 90vh;
@@ -168,7 +171,6 @@
         margin: 20px;
     }
     #networks {
-        z-index: 2;
         position: relative;
         height: calc(100vh - 135px);
         width:80vw;
@@ -182,6 +184,7 @@
         display: none;
     }
     .title-sect-netw {
+        z-index: 5;
         position: fixed;
         height: 10vh;
         width: 100%;
@@ -197,6 +200,7 @@
         }
     }
     .container-area {
+        z-index: 1;
         position: relative;
         height: calc(100vh - 135px);
         width: 500px;
@@ -204,10 +208,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 1rem;
         padding-right: 1rem;
-        overflow-y: hidden;
+        overflow: hidden;
     }
     .area {
+        z-index: 1;
         position: relative;
         display: flex;
         justify-content: start;
@@ -430,7 +436,7 @@
         top: -3rem;
     }
     .container-card {
-        z-index: 1;
+        z-index: 3;
         position: relative;
         width: 500px;
         height: 500px;
@@ -513,7 +519,6 @@
 
     @media screen and (max-width: 1500px){
          #networks {
-            height: 100%;
             padding: 0;
             flex-wrap: wrap;
             padding-bottom: 1rem;
@@ -522,7 +527,6 @@
         } 
         
         .area {
-            z-index: 1;
             position: relative;
             display: flex;
             justify-content: start;
@@ -618,7 +622,7 @@
 
     }
 
-@media screen and (max-width: 1000px){ 
+@media screen and (max-width: 1500px){ 
     .container-card {
         padding: 1rem;
         width: 100%;
@@ -662,7 +666,7 @@
        height: auto;
     }
     .area {
-        max-height: 250px;
+        max-height: 170px;
     }
 
     .container-data {
