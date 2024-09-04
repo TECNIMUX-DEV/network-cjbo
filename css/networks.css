@@ -146,6 +146,8 @@
     
             &:active {
                 transform: scale(0.9);
+                box-shadow: 0 0 10px #ffffff;
+                filter: none;
         }
         }
 
@@ -174,7 +176,7 @@
         position: relative;
         height: calc(100vh - 135px);
         width:80vw;
-        max-width: 1800px;
+        max-width: 1600px;
         margin: 0 auto;
         justify-content: space-around;
         align-items: center;
@@ -211,7 +213,27 @@
         padding: 1rem;
         padding-right: 1rem;
         overflow: hidden;
+
+        &::after {
+            content: 'AREA';
+            z-index: 1;
+            position: relative;
+            display: inline-flex;
+            top: -50px;
+            left: -355px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 5px;
+            font-size: 2rem;
+            font-weight: 700;
+            transform: rotate(-90deg);
+            background-color: transparent;
+            color: #3535353d;
+            text-align: center;
+
+        }
     }
+
     .area {
         z-index: 1;
         position: relative;
@@ -220,10 +242,11 @@
         flex-wrap: wrap;
         align-items: start;
         width: 100%;
+        max-width: 240px;
         height: auto;
         max-height: 400px;
         /* min-height: 200px; */
-        background-color: #fff;
+        background-color: #e9e9e9;
         border-radius: 5px;
         margin-right: 1rem;
         padding: 3rem;
@@ -438,13 +461,33 @@
     .container-card {
         z-index: 3;
         position: relative;
-        width: 500px;
         height: 500px;
-        background-color: #ffffffc2;
+        width: 500px;
+        padding-left: 1rem;
+        background-color: #ffffff;
         backdrop-filter: blur(20px);
         border-radius: 5px;
         box-shadow: 0 0 10px #00000060;
         margin-top: 6rem;
+
+        &::after {
+            content: 'DETALLES DE RED';
+            z-index: 1;
+            position: absolute;
+            display: inline-flex;
+            top: 120px;
+            left: -220px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 5px;
+            font-size: 2rem;
+            font-weight: 700;
+            transform: rotate(-90deg);
+            background-color: transparent;
+            color: #3535353d;
+            text-align: center;
+
+        }
     }
     .card {
         position: relative;
@@ -525,6 +568,14 @@
             top: -5rem;
             overflow: hidden;
         } 
+
+        .container-area::after{
+            display: none;
+        }
+        .container-card::after{
+            display: none;
+        }
+
         
         .area {
             position: relative;
@@ -622,11 +673,12 @@
 
     }
 
-@media screen and (max-width: 1500px){ 
+@media screen and (max-width: 1300px){ 
     .container-card {
         padding: 1rem;
         width: 100%;
         height: 300px;
+        min-height: 300px;
     
         .card {
             padding: 0px;
