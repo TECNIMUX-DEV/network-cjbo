@@ -110,24 +110,31 @@
         flex-wrap: wrap;
 
         .home-red {
-            z-index: 20;
+            z-index: 1;
+            position: relative;
+            display: flex;
+            justify-content: start;
+            align-items: center;
             text-align: center;
-            height: 190px;
-            width: 190px;
+            height: 200px;
+            width: 200px;
             background-color: #22222293;
             border-radius: 10%;
-            margin: 5px;
-            padding: 25px;
+            padding: 1rem;
             cursor: pointer;
             backdrop-filter: blur(40px);
             box-shadow: 1px 0 0 #ff0000;
             transition:  0.2s ease;
             text-align: start;
+            text-wrap: wrap;
+            flex-wrap: wrap;
+            overflow: hidden;
     
     
             & h2 {
-                font-size: 2rem;
-                box-shadow: 0 0.5px  0 #fff;
+                width: 100%;
+                font-size: 1.8rem;
+                text-decoration: underline 0.5px #fff;
                 }
     
             & p {
@@ -137,6 +144,7 @@
                 text-wrap: pretty;
                 padding: 10px;
                 color: #dddddd;
+                box-shadow: 0 -0.3px #ffffff50;
             }
             
             &:hover {
