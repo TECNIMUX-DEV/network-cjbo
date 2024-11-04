@@ -104,11 +104,16 @@
 
 
     .logo-CJBO {
+        z-index: 0;
         position: absolute;
         height: auto;
         width: 300px;
         bottom: 0;
         right: 1rem;
         filter: drop-shadow(0 0 10px rgb(0, 0, 0));
-        filter: contrast(0) brightness(0) opacity(0.5);
+        filter: contrast(0) brightness(0) opacity(0.2);
+
+        @media screen and (max-width: 1000px) {
+            width: 100px;
+        } 
     }
