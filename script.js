@@ -17,12 +17,12 @@ if (username === user && password === pass) {
             window.location.href = '/html/sffgfhjkllñlkjlkhkjjrwrwew.html';
         }, 2000);
 
-    inside.textContent = 'Usuario y contraseña correctos';
+    inside.textContent = 'Ingresando...';
     login.style.display = 'none';
 }
 else {
     outside.style.display = 'flex';
-    outside.innerHTML = 'Usuario y contraseña incorrectos';
+    outside.innerHTML = 'Credenciales invalidas';
     error.style.display = 'flex';
     setTimeout(function() {
         window.location.href = '/index.html';

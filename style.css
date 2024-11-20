@@ -152,6 +152,7 @@ legend {
     border-radius: 5px;
     }
 }
+
 #error {
     z-index: 1;
     position: absolute;
@@ -173,12 +174,14 @@ legend {
         width: 50px;
     }
 }
+
 #inside {
     z-index: 1;
     font-size: 1rem;
     font-weight: 200;
-    color: #fff;
+    color: rgb(162, 255, 162);
 }
+
 #outside {
     z-index: 1;
     position: absolute;
