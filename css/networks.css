@@ -179,6 +179,10 @@
             
         }
     }
+
+    #map {
+        display: none;
+    }
     .zona-acad, .zona-admi {
         margin: 20px;
     }
