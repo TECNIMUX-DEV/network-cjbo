@@ -11,7 +11,7 @@ if (!fs.existsSync(outputFolder)) {
 
 elementos.forEach((elemento) => {
     // const url = `http://localhost:3000/elemento/${elemento.id}`;
-    const url = `https://network-cjbo.vercel.app//elemento/${elemento.id}`;
+    const url = `https://network-cjbo.vercel.app/elemento/${elemento.id}`;
 
     const nombreArchivo = `${outputFolder}/qr_${elemento.id}.png`;
 
