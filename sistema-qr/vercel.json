@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "/sistema-qr/backend/app.js",
+      "src": "backend/app.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/elemento/(.*)",
-      "dest": "/sistema-qr/backend/app.js"
+      "dest": "/backend/api/elemento.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/sistema-qr/backend/app.js"
+      "dest": "/frontend/$1"
     }
   ]
 }
