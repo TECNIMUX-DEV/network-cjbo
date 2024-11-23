@@ -34,7 +34,8 @@ if (!fs.existsSync(outputFolder)) {
 }
 
 elementos.forEach((elemento) => {
-    const url = `https://network-cjbo.vercel.app/elemento/${elemento.id}`;  // Cambiar a la URL de producción
+    // const url = `https://network-cjbo.vercel.app/elemento/${elemento.id}`;  // Cambiar a la URL de producción
+    const url = `http://192.168.0.12:3000/elemento/${elemento.id}`;
 
     const nombreArchivo = `${outputFolder}/qr_${elemento.id}.png`;
 
