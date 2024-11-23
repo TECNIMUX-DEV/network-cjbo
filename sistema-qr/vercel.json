@@ -1,10 +1,19 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "/sistema-qr/backend/app.js",
-        "use": "@vercel/node"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "/sistema-qr/backend/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/elemento/(.*)",
+      "dest": "/sistema-qr/backend/app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/sistema-qr/backend/app.js"
+    }
+  ]
+}
