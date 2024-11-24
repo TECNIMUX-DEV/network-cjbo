@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
+    <title>{{titulo}}</title>
     <link rel="stylesheet" href="/css/inventario.css">
     <link rel="icon" type="image/svg" href="/favicons-cjbo/package.svg">
     <script src="/js/inventario.js" type="module"></script>
@@ -55,16 +55,13 @@
             </div>
             <div class="computer-db-info">
                 <ul>
-                    <ul>AREA/UBICACIÓN
+                    <ul>ID
+                        <li>
+
+                        </li>
+                    </ul>
+                    <ul>NUMERO INVENTARIO
                       <li>...</li>
-                    </ul>
-          
-                    <ul>PERSONA RESPONSABLE
-                        <li>...</li>
-                    </ul>
-          
-                    <ul># SERIAL
-                        <li>...</li>
                     </ul>
           
                     <ul>MARCA
@@ -74,11 +71,29 @@
                     <ul>MODELO
                         <li>...</li>
                     </ul>
+          
+                    <ul>SERIAL
+                        <li>...</li>
+                    </ul>
+          
+                    <ul>UBICACIÓN
+                        <li>...</li>
+                    </ul>
                   </ul>
             </div>
         </div>
     </div>
 </section>
+
+
+<h1>{{id}}</h1>
+<p>Número de Inventario: {{numeroInventario}}</p>
+<p>Marca: {{marca}}</p>
+<p>Modelo: {{modelo}}</p>
+<p>Serial: {{serial}}</p>
+<p>Aula: {{aula}}</p>
+
+
 
 <!-- LIST DESKTOP -->
     <section id="list-desktop" class="list-desktop">
