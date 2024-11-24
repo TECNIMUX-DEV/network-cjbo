@@ -290,15 +290,15 @@ function insertCasaVerde() {
     let filterOnClickItem = document.getElementById('filter-on-click-item');
     const area = document.getElementById('area');
     function addSides() {
-        card.classList.add('add-sides')
-        card.classList.remove('remove-sides')
+        // card.classList.add('add-sides')
+        // card.classList.remove('remove-sides')
         filterOnClickItem.style.display = 'block';
         area.style.opacity = '0.2';
         area.style.zIndex = '-10';
 
         setTimeout(function() {
-            card.classList.remove('add-sides')
-            card.classList.add('remove-sides')
+            // card.classList.remove('add-sides')
+            // card.classList.add('remove-sides')
             filterOnClickItem.style.display = 'none';
             area.style.opacity = '1';
             area.style.zIndex = '1';
