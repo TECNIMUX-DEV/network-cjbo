@@ -240,20 +240,14 @@
             }
         });
 
-   // Show areas menu
-    const btnOpenAreas = document.getElementById('btn-open-areas');
-    const containerAreas = document.getElementById('container-areas');
-
-    let isOpen = false;
-    btnOpenAreas.addEventListener('click', () => {
-        if (isOpen) {
-            containerAreas.style.display = 'none';
-            isOpen = false;
-        } else {
-            containerAreas.style.display = 'block';
-            isOpen = true;
-        }
-    })
+        // Detectar cambios en el hash y hacer la búsqueda si el hash cambia
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1).toUpperCase(); // Obtener el hash de la URL
+            if (hash) {
+                document.getElementById('search-input').value = hash;
+                searchTable(); // Llamar a la búsqueda automáticamente con el hash de la URL
+            }
+        });
     </script>
 
     <footer>
