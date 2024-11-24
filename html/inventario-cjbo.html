@@ -4,97 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Equipos</title>
-    <style>
-        /* Estilos básicos */
-        body {
-            padding: 1rem;
-        }
-        .search-container {
-            margin: 20px;
-            text-align: center;
-        }
-        #search-input {
-            padding: 10px;
-            width: 300px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
+    <link rel="stylesheet" href="/css/inventario-cjbo.css">
 
-
-        .logo-CJBO {
-        z-index: -1;
-        position: fixed;
-        height: auto;
-        width: 300px;
-        bottom: 0;
-        right: 1rem;
-        filter: drop-shadow(0 0 10px rgb(0, 0, 0));
-        filter: contrast(0) brightness(0) opacity(0.2);
-
-        @media screen and (max-width: 1000px) {
-            width: 100px;
-        } 
-    }
-
-    header {
-        position: relative;
-    }
-
-    nav {
-        position: relative;
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        & button {
-            display: block;
-            font-weight: 700;
-            border-radius: 5px;
-            background-color: rgb(255, 25, 25);
-            color: var(--white);
-            padding: .1rem .5rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        & ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        & #container-areas {
-            display: none;
-
-                & li {
-
-
-                    &:hover {
-                        opacity: .6;
-
-                    }
-                }
-        }
-
-    }
-    </style>
 </head>
 <body>
     <header>
         <nav>
-                <!-- Contenedor de búsqueda -->
+    <!-- Contenedor de búsqueda -->
     <div class="search-container">
         <input type="search" placeholder="Buscar equipo por ID..." id="search-input">
     </div>
@@ -126,130 +42,140 @@
     </nav>
     </header>
 
-
     <!-- Contenedor para cargar dinámicamente las tablas -->
     <div id="tables-container">
         <!-- Las tablas se cargarán aquí -->
     </div>
-
     <script>
         // Función para cargar los archivos HTML dinámicamente
         async function loadTables() {
-            const files = [
-                '/html/data-computers/AD.html',
-                '/html/data-computers/AN.html',
-                '/html/data-computers/BR.html',
-                '/html/data-computers/CD.html',
-                '/html/data-computers/CPS.html',
-                '/html/data-computers/CS.html',
-                '/html/data-computers/CV.html',
-                '/html/data-computers/DCAD.html',
-                '/html/data-computers/DN.html',
-                '/html/data-computers/EA.html',
-                '/html/data-computers/EBD.html',
-                '/html/data-computers/ED.html',
-                '/html/data-computers/GH.html',
-                '/html/data-computers/OC.html',
-                '/html/data-computers/RS.html',
-                '/html/data-computers/SM.html',
-                '/html/data-computers/STI.html'
-            ];
+    const files = [
+        '/html/data-computers/AD.html',
+        '/html/data-computers/AN.html',
+        '/html/data-computers/BR.html',
+        '/html/data-computers/CD.html',
+        '/html/data-computers/CPS.html',
+        '/html/data-computers/CS.html',
+        '/html/data-computers/CV.html',
+        '/html/data-computers/DCAD.html',
+        '/html/data-computers/DN.html',
+        '/html/data-computers/EA.html',
+        '/html/data-computers/EBD.html',
+        '/html/data-computers/ED.html',
+        '/html/data-computers/GH.html',
+        '/html/data-computers/OC.html',
+        '/html/data-computers/RS.html',
+        '/html/data-computers/SM.html',
+        '/html/data-computers/STI.html'
+    ];
 
-            const container = document.getElementById('tables-container');
-            container.innerHTML = ''; // Limpiar el contenedor antes de cargar nuevas tablas
+    const container = document.getElementById('tables-container');
+    container.innerHTML = ''; // Limpiar el contenedor antes de cargar nuevas tablas
 
-            // Cargar cada archivo HTML y asegurarse de que los estilos se mantengan
-            for (const file of files) {
-                const response = await fetch(file);
-                const html = await response.text();
-                const div = document.createElement('div');
-                div.innerHTML = html;
-                // Asegurarse de que los estilos de la tabla se apliquen
-                const styleSheets = div.querySelectorAll('link[rel="stylesheet"], style');
-                styleSheets.forEach(style => {
-                    document.head.appendChild(style.cloneNode(true));
-                });
-                container.appendChild(div);
-            }
-        }
+    // Cargar cada archivo HTML
+    const promises = files.map(file => fetch(file).then(response => response.text()));
+    const htmlContents = await Promise.all(promises);
 
-        // Función para filtrar las tablas por el ID y mover la tabla que contiene el ID
-        function searchTable() {
-            const filter = document.getElementById('search-input').value.toUpperCase();
-            const tables = document.querySelectorAll('table');
-            const container = document.getElementById('tables-container');
-            let matchedTables = [];
+    htmlContents.forEach(html => {
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        container.appendChild(div);
+    });
 
-            // Iterar sobre cada tabla
-            tables.forEach(table => {
-                const rows = table.getElementsByTagName('tr');
-                let matchedRow = false;
+    // Asegurarse de que los estilos se aplican correctamente después de cargar las tablas
+    applyStylesToTables();
+}
 
-                // Recorremos las filas de la tabla
-                for (let i = 0; i < rows.length; i++) {
-                    const cells = rows[i].getElementsByTagName('td');
-                    if (cells.length > 0) {
-                        const idCell = cells[0]; // Obtener la primera celda (que tiene la clase 'id-column')
-                        if (idCell) {
-                            const id = idCell.textContent || idCell.innerText;
-                            if (id.toUpperCase().indexOf(filter) > -1) {
-                                // Si encontramos coincidencia, mostramos la fila
-                                rows[i].style.display = '';
-                                matchedRow = true;
-                            } else {
-                                rows[i].style.display = 'none';
-                            }
-                        }
+// Función para reaplicar los estilos a las tablas cargadas
+function applyStylesToTables() {
+    const tables = document.querySelectorAll('table');
+    tables.forEach(table => {
+        // Forzamos un repaint del navegador para asegurarnos de que los estilos se apliquen
+        table.offsetHeight; // Esto fuerza un reflujo (repaint)
+    });
+}
+
+// Función para filtrar las tablas por el ID y mover la tabla que contiene el ID
+function searchTable() {
+    const filter = document.getElementById('search-input').value.toUpperCase();
+    const tables = document.querySelectorAll('table');
+    const container = document.getElementById('tables-container');
+    let matchedTables = [];
+
+    // Iterar sobre cada tabla
+    tables.forEach(table => {
+        const rows = table.getElementsByTagName('tr');
+        let matchedRow = false; // Variable para comprobar si encontramos algún ID en la tabla
+
+        // Recorremos las filas de la tabla
+        for (let i = 0; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName('td');
+            if (cells.length > 0) {
+                const idCell = cells[0]; // Obtener la primera celda (que tiene la clase 'id-column')
+                if (idCell) {
+                    const id = idCell.textContent || idCell.innerText; // Obtener el ID
+                    if (id.toUpperCase().indexOf(filter) > -1) {
+                        // Si encontramos coincidencia, mostramos la fila
+                        rows[i].style.display = '';
+                        matchedRow = true;
+                    } else {
+                        rows[i].style.display = 'none'; // Ocultamos las filas que no coinciden
                     }
                 }
-
-                if (matchedRow) {
-                    matchedTables.push(table);
-                }
-            });
-
-            // Reordenar las tablas: primero las que contienen el ID buscado
-            const allTables = Array.from(tables);
-            const nonMatchedTables = allTables.filter(table => !matchedTables.includes(table));
-
-            // Limpiar el contenedor y volver a insertar las tablas
-            container.innerHTML = '';
-            matchedTables.forEach(table => container.appendChild(table));
-            nonMatchedTables.forEach(table => container.appendChild(table));
-
-            // Actualizar la URL con el ID buscado
-            if (filter) {
-                window.history.pushState(null, '', `#${filter}`);
-            } else {
-                window.history.pushState(null, '', window.location.pathname); // Limpiar la parte del hash si no hay búsqueda
             }
         }
 
-        // Llamar a la función para cargar las tablas al inicio
+        // Si encontramos una fila que coincide con el ID, almacenar la tabla en la lista de tablas coincidentes
+        if (matchedRow) {
+            matchedTables.push(table);
+        }
+    });
+
+    // Reordenar las tablas: primero las que contienen el ID buscado
+    const allTables = Array.from(tables); // Convertir las NodeList a un array
+    const nonMatchedTables = allTables.filter(table => !matchedTables.includes(table));
+
+    // Limpiar el contenedor y volver a insertar las tablas
+    container.innerHTML = '';
+    matchedTables.forEach(table => container.appendChild(table)); // Agregar las tablas que coinciden con el ID
+    nonMatchedTables.forEach(table => container.appendChild(table)); // Agregar el resto de las tablas
+
+    // Asegurarse de que los estilos se aplican después de la búsqueda
+    applyStylesToTables();
+}
+
+// Detectar si hay un hash en la URL y ejecutar la búsqueda al cargar la página
+window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1).toUpperCase(); // Obtener el hash de la URL
+    if (hash) {
+        // Si hay un hash, colocar su valor en el campo de búsqueda
+        document.getElementById('search-input').value = hash;
+
+        // Esperar a que se carguen las tablas, luego ejecutar la búsqueda
+        loadTables().then(() => {
+            searchTable(); // Ejecutar la búsqueda después de cargar las tablas
+        });
+    } else {
+        // Si no hay hash, solo cargar las tablas normalmente
         loadTables();
+    }
+});
 
-        // Añadir un event listener para la búsqueda
-        document.getElementById('search-input').addEventListener('input', searchTable);
-
-        // Verificar si hay un hash en la URL al cargar la página y mostrar el ID
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1).toUpperCase(); // Obtener el hash de la URL
-            if (hash) {
-                document.getElementById('search-input').value = hash;
-                searchTable(); // Llamar a la búsqueda automáticamente con el hash de la URL
-            }
-        });
-
-        // Detectar cambios en el hash y hacer la búsqueda si el hash cambia
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1).toUpperCase(); // Obtener el hash de la URL
-            if (hash) {
-                document.getElementById('search-input').value = hash;
-                searchTable(); // Llamar a la búsqueda automáticamente con el hash de la URL
-            }
-        });
-    </script>
-
+// Añadir un event listener para la búsqueda
+document.getElementById('search-input').addEventListener('input', function () {
+    searchTable(); 
+    
+    // Actualizar el hash en la URL cuando se realiza una búsqueda
+    const searchValue = document.getElementById('search-input').value;
+    if (searchValue) {
+        // Si hay algo en la barra de búsqueda, actualizamos el hash de la URL
+        history.pushState(null, '', `#${searchValue.toUpperCase()}`);
+    } else {
+        // Si no hay búsqueda, eliminamos el hash
+        history.pushState(null, '', window.location.pathname);
+    }
+});
+</script>
     <footer>
         <img src="/img/logo-CJBO.png" 
         alt="" class="logo-CJBO">

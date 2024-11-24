@@ -1,0 +1,84 @@
+        /* Estilos básicos */
+        body {
+            padding: 1rem;
+        }
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+        #search-input {
+            padding: 10px;
+            width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+
+        .logo-CJBO {
+        z-index: -1;
+        position: fixed;
+        height: auto;
+        width: 300px;
+        bottom: 0;
+        right: 1rem;
+        filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+        filter: contrast(0) brightness(0) opacity(0.2);
+
+        @media screen and (max-width: 1000px) {
+            width: 100px;
+        } 
+    }
+
+    header {
+        position: relative;
+    }
+
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & button {
+            display: block;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: rgb(255, 25, 25);
+            color: var(--white);
+            padding: .1rem .5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        & ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & #container-areas {
+            display: none;
+
+                & li {
+
+
+                    &:hover {
+                        opacity: .6;
+
+                    }
+                }
+        }
+
+    }
