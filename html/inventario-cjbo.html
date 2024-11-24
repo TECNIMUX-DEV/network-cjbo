@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Equipos</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            padding: 1rem;
+        }
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+        #search-input {
+            padding: 10px;
+            width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+
+        .logo-CJBO {
+        z-index: -1;
+        position: fixed;
+        height: auto;
+        width: 300px;
+        bottom: 0;
+        right: 1rem;
+        filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+        filter: contrast(0) brightness(0) opacity(0.2);
+
+        @media screen and (max-width: 1000px) {
+            width: 100px;
+        } 
+    }
+
+    header {
+        position: relative;
+    }
+
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & button {
+            display: block;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: rgb(255, 25, 25);
+            color: var(--white);
+            padding: .1rem .5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        & ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & #container-areas {
+            display: none;
+
+                & li {
+
+
+                    &:hover {
+                        opacity: .6;
+
+                    }
+                }
+        }
+
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+                <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="search" placeholder="Buscar equipo por ID..." id="search-input">
+    </div>
+        <ul>
+            <ul><a href="/html/qrs.html"><button>Qr's</button></a>
+                <li></li>
+            </ul>
+            <ul id="list-areas"><button id="btn-open-areas">AREAS</button>
+                <div id="container-areas">
+                    <li><a href="/html/data-computers/DCAD.html">AULA DIBUJO CAD</a></li>
+                    <li><a href="/html/data-computers/ED.html">ELECTRONICA DIGITAL</a></li>
+                    <li><a href="/html/data-computers/RS.html">AULA REDES</a></li>
+                    <li><a href="/html/data-computers/STI.html">AULA SOPORTE T.I</a></li>
+                    <li><a href="/html/data-computers/AD.html">ARCHIVO Y DOCUMENTACION</a></li>
+                    <li><a href="/html/data-computers/CS.html">CONTABILIDAD SISTEMATIZADA</a></li>
+                    <li><a href="/html/data-computers/SM.html">SISTEMAS MECÁNICA</a></li>
+                    <li><a href="/html/data-computers/AN.html">ALMACEN</a></li>
+                    <li><a href="/html/data-computers/CPS.html">COMPRAS</a></li>
+                    <li><a href="/html/data-computers/GH.html">GESTIÓN HUMANA</a></li>
+                    <li><a href="/html/data-computers/OC.html">OFICINA COMUNICACIONES</a></li>
+                    <li><a href="/html/data-computers/CD.html">CONTABILIDAD</a></li>
+                    <li><a href="/html/data-computers/DN.html">DIRECCIÓN</a></li>
+                    <li><a href="/html/data-computers/ED.html">EMPLEABILIDAD</a></li>
+                    <li><a href="/html/data-computers/EA.html">ENFERMERIA</a></li>
+                    <li><a href="/html/data-computers/BR.html">BIENESTAR</a></li>
+                </div>
+            </ul>
+        </ul>
+    </nav>
+    </header>
+
+
+    <!-- Contenedor para cargar dinámicamente las tablas -->
+    <div id="tables-container">
+        <!-- Las tablas se cargarán aquí -->
+    </div>
+
+    <script>
+        // Función para cargar los archivos HTML dinámicamente
+        async function loadTables() {
+            const files = [
+                '/html/data-computers/AD.html',
+                '/html/data-computers/AN.html',
+                '/html/data-computers/BR.html',
+                '/html/data-computers/CD.html',
+                '/html/data-computers/CPS.html',
+                '/html/data-computers/CS.html',
+                '/html/data-computers/CV.html',
+                '/html/data-computers/DCAD.html',
+                '/html/data-computers/DN.html',
+                '/html/data-computers/EA.html',
+                '/html/data-computers/EBD.html',
+                '/html/data-computers/ED.html',
+                '/html/data-computers/GH.html',
+                '/html/data-computers/OC.html',
+                '/html/data-computers/RS.html',
+                '/html/data-computers/SM.html',
+                '/html/data-computers/STI.html'
+            ];
+
+            const container = document.getElementById('tables-container');
+            container.innerHTML = ''; // Limpiar el contenedor antes de cargar nuevas tablas
+
+            // Cargar cada archivo HTML y asegurarse de que los estilos se mantengan
+            for (const file of files) {
+                const response = await fetch(file);
+                const html = await response.text();
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                // Asegurarse de que los estilos de la tabla se apliquen
+                const styleSheets = div.querySelectorAll('link[rel="stylesheet"], style');
+                styleSheets.forEach(style => {
+                    document.head.appendChild(style.cloneNode(true));
+                });
+                container.appendChild(div);
+            }
+        }
+
+        // Función para filtrar las tablas por el ID y mover la tabla que contiene el ID
+        function searchTable() {
+            const filter = document.getElementById('search-input').value.toUpperCase();
+            const tables = document.querySelectorAll('table');
+            const container = document.getElementById('tables-container');
+            let matchedTables = [];
+
+            // Iterar sobre cada tabla
+            tables.forEach(table => {
+                const rows = table.getElementsByTagName('tr');
+                let matchedRow = false;
+
+                // Recorremos las filas de la tabla
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    if (cells.length > 0) {
+                        const idCell = cells[0]; // Obtener la primera celda (que tiene la clase 'id-column')
+                        if (idCell) {
+                            const id = idCell.textContent || idCell.innerText;
+                            if (id.toUpperCase().indexOf(filter) > -1) {
+                                // Si encontramos coincidencia, mostramos la fila
+                                rows[i].style.display = '';
+                                matchedRow = true;
+                            } else {
+                                rows[i].style.display = 'none';
+                            }
+                        }
+                    }
+                }
+
+                if (matchedRow) {
+                    matchedTables.push(table);
+                }
+            });
+
+            // Reordenar las tablas: primero las que contienen el ID buscado
+            const allTables = Array.from(tables);
+            const nonMatchedTables = allTables.filter(table => !matchedTables.includes(table));
+
+            // Limpiar el contenedor y volver a insertar las tablas
+            container.innerHTML = '';
+            matchedTables.forEach(table => container.appendChild(table));
+            nonMatchedTables.forEach(table => container.appendChild(table));
+
+            // Actualizar la URL con el ID buscado
+            if (filter) {
+                window.history.pushState(null, '', `#${filter}`);
+            } else {
+                window.history.pushState(null, '', window.location.pathname); // Limpiar la parte del hash si no hay búsqueda
+            }
+        }
+
+        // Llamar a la función para cargar las tablas al inicio
+        loadTables();
+
+        // Añadir un event listener para la búsqueda
+        document.getElementById('search-input').addEventListener('input', searchTable);
+
+        // Verificar si hay un hash en la URL al cargar la página y mostrar el ID
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1).toUpperCase(); // Obtener el hash de la URL
+            if (hash) {
+                document.getElementById('search-input').value = hash;
+                searchTable(); // Llamar a la búsqueda automáticamente con el hash de la URL
+            }
+        });
+
+   // Show areas menu
+    const btnOpenAreas = document.getElementById('btn-open-areas');
+    const containerAreas = document.getElementById('container-areas');
+
+    let isOpen = false;
+    btnOpenAreas.addEventListener('click', () => {
+        if (isOpen) {
+            containerAreas.style.display = 'none';
+            isOpen = false;
+        } else {
+            containerAreas.style.display = 'block';
+            isOpen = true;
+        }
+    })
+    </script>
+
+    <footer>
+        <img src="/img/logo-CJBO.png" 
+        alt="" class="logo-CJBO">
+    </footer>
+</body>
+</html>
