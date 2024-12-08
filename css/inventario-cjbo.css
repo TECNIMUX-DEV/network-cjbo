@@ -2,19 +2,23 @@
         body {
             padding: 1rem;
         }
+        
         .search-container {
             margin: 20px;
             text-align: center;
         }
+
         #search-input {
             padding: 10px;
             width: 300px;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
+
         th, td {
             padding: 8px;
             border: 1px solid #ddd;
@@ -52,10 +56,10 @@
         & button {
             display: block;
             font-weight: 700;
-            border-radius: 5px;
-            background-color: rgb(255, 25, 25);
+            border-radius: 3px;
+            background-color: #ff1919;
             color: var(--white);
-            padding: .1rem .5rem;
+            padding: .3rem .5rem;
             border: none;
             cursor: pointer;
         }
@@ -73,10 +77,8 @@
 
                 & li {
 
-
                     &:hover {
                         opacity: .6;
-
                     }
                 }
         }
