@@ -17,7 +17,16 @@ filterQrs.addEventListener('click', () => {
     filterQrs.style.display = 'none';
     document.body.style.overflow = 'auto';
     });
+})
 
-
+// Button top
+window.addEventListener('scroll', () => {
+let scrollY = window.scrollY;
+const btnTop = $$$$('btn-top');
+    if(scrollY > 5) {
+        btnTop.style.display = 'block';
+    } else {
+        btnTop.style.display = 'none';
+    }
 })
 
