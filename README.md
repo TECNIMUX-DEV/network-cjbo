@@ -1,2 +1,2 @@
-# network-cjbo
-NETWORK  CJBO
+# CJBO NETWORKS
+Configuración redes.
